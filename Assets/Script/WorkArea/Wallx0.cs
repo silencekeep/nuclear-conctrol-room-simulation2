@@ -1,0 +1,53 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using CNCC.Saving;
+
+namespace CNCC.WorkArea
+{
+    public class Wallx0 : MonoBehaviour, IWallAdjust,ISaveable
+    {
+        //设定厂房的高度不会变
+        double wallLength;
+        double wallWidth;
+        float wallHeight;
+        // Start is called before the first frame update
+        void Start()
+        {
+            wallHeight = 10;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+        public void SetWallPosition(double length, double width)
+        {
+            gameObject.transform.position = new Vector3(0, wallHeight / 2, (float)wallWidth / 2);
+        }
+
+        public void SetWallScale(double length, double width)
+        {
+            gameObject.transform.localScale = new Vector3((float)0.01, wallHeight, (float)wallWidth);
+        }
+
+        public object CaptureState()
+        {
+            Dictionary<string, object> data = new Dictionary<string, object>();
+            data["position"] = new SerializableVector3(transform.position);
+            data["rotation"] = new SerializableVector3(transform.eulerAngles);
+            data["scale"] = new SerializableVector3(transform.localScale);
+            return data;
+        }
+
+        public void RestoreState(object state)
+        {
+            Dictionary<string, object> data = (Dictionary<string, object>)state;
+            transform.position = ((SerializableVector3)data["position"]).ToVector();
+            transform.eulerAngles = ((SerializableVector3)data["rotation"]).ToVector();
+            transform.localScale = ((SerializableVector3)data["scale"]).ToVector();
+        }
+    }
+}
+
