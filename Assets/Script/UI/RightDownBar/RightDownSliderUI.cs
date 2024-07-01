@@ -1,4 +1,4 @@
-﻿using CNCC.Models;
+﻿/*using CNCC.Models;
 using CNCC.Panels;
 using System;
 using System.Collections;
@@ -58,10 +58,10 @@ namespace CNCC.UI
             buttonMiddle.onClick.AddListener(MonitorBarMiddleButtonOnclick);
             buttonRight.onClick.AddListener(MonitorBarRightButtonOnclick);
 
-            x_max.text = "17.00";
-            y_max.text = "8.00";
+            x_max.text = "21.00";
+            y_max.text = "5.00";
             z_max.text = "10.00";
-            x_min.text = "5.00";
+            x_min.text = "4.00";
             y_min.text = "0.00";
             z_min.text = "0.00";
             Slider_x.maxValue = float.Parse(x_max.text);
@@ -83,12 +83,12 @@ namespace CNCC.UI
             Slider_x.onValueChanged.AddListener(delegate {
                 Xposition.text = Slider_x.value.ToString("F3");
                 LockInputPosition(Xposition);
-                /*if (obj != null)
+                *//*if (obj != null)
                 {
                     Xposition.text = Slider_x.value.ToString("F3");
                     LockInputPosition(Xposition);
                 }
-                else Xposition.text = Yposition.text = Zposition.text = string.Empty;*/
+                else Xposition.text = Yposition.text = Zposition.text = string.Empty;*//*
             });
             Slider_y.onValueChanged.AddListener(delegate {
                 Yposition.text = Slider_y.value.ToString("F3");
@@ -219,23 +219,21 @@ namespace CNCC.UI
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit))
                 {
-                    Xposition.text = Yposition.text = Zposition.text = string.Empty;
+                    //Xposition.text = Yposition.text = Zposition.text = string.Empty;
                     if (!EventSystem.current.IsPointerOverGameObject())//判断点击目标是否为UI
                     {
-                        obj = null;
                         if (hit.transform.gameObject.GetComponent<Panel>())
                         {
                             obj = hit.transform.gameObject;
                             SetTypeAndNameText("盘台", obj.GetComponent<Panel>().ID);
-                            UpdataPosition();
                         }
                         else if (hit.transform.gameObject.GetComponent<Model>())
                         {
                             obj = hit.transform.gameObject;
                             SetTypeAndNameText("人", obj.GetComponent<Model>().Name);
-                            UpdataPosition();
                             //print(obj.GetComponent<Model>().GetPosition().ToString("0.000"));
                             //print("y坐标差" + (obj.GetComponent<Model>().GetPosition().y - Zero.position.y).ToString("0.0000"));
+
                         }
                         clickObj = obj;
                         MonitorControlUI();
@@ -497,5 +495,4 @@ namespace CNCC.UI
     }
 
 
-}
-
+}*/
