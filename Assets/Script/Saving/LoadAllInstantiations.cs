@@ -66,10 +66,9 @@ public class LoadAllInstantiations : MonoBehaviour
     }
     void Start()
     {
-
         LoadButton.onClick.AddListener(LoadAllObject);
         GetWorkAreaInfor();
-
+        Debug.Log("LoadAllInstantiations : Start -?> " + this.name + " [" + this.gameObject.scene.name + "]" );
         //程序开始初始化，最后可删
         Init();
         this.gameObject.SetActive(false);

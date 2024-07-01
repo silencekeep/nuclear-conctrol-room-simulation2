@@ -122,8 +122,9 @@ public class StationChange : MonoBehaviour
 
     public void Alert() 
     {
-
-        double length = 2 * Convert.ToDouble(stretch_Sitting) + (double)22.3;
+        double length = string.IsNullOrEmpty(stretch_Sitting) ? 
+            (double)22.3 : 
+            (2 * Convert.ToDouble(stretch_Sitting) + (double)22.3);
         if (myTarget.GetComponent<Panel>())
         {
             if (lengthFloat > length)

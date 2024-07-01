@@ -57,9 +57,9 @@ public class RegisterControl : MonoBehaviour
         textRegister.color = new Color(0 / 255f, 0 / 255f,0 / 255f, 255 / 255f);
         ImageLogin.color = new Color(0 / 255f, 0 / 255f, 255 / 255f, 255 / 255f);
         ImageRegister.color = new Color(255f / 255f, 255f / 255f, 255f / 255f, 0 / 255f);
-        userText.text = "";
-        passwordText.text = "";
-        passwordText2.text = "";
+        userText.text = "yingyuan";
+        passwordText.text = "123456";
+        passwordText2.text = "123456";
         logres = 0;
     }
     //ע�ᰴť
