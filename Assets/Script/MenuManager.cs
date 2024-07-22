@@ -6,7 +6,7 @@ public class MenuManager : MonoBehaviour
 {
     public GameObject Posture,盘台拼接;
     public GameObject analyseMenu, keshiMenu, canshuhuaMenu, NewPeople, HumanDataPanel, RequireDataMenu, RequireDataPanel, NewHuman, 
-                      JointsAdjust, ActDatabase, RelationPanel, CreatPeopleButton, NewPerson,WorkArea, CaiBiaoPanel;
+                      JointsAdjust, ActDatabase, MeshImportPanel, RelationPanel, CreatPeopleButton, NewPerson,WorkArea, CaiBiaoPanel;
     // Start is called before the first frame update
    
     void Start()
@@ -103,6 +103,18 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void MeshImportPanel_onClick()
+    {
+        if (!MeshImportPanel.activeInHierarchy)
+        {
+            MeshImportPanel.SetActive(true);
+        }
+        else
+        {
+            MeshImportPanel.SetActive(false);
+        }
+    }
+
     //public void CreatPeopleButton_onClick()
     //{
     //    if (!CreatPeopleButton.activeInHierarchy)
@@ -143,6 +155,16 @@ public class MenuManager : MonoBehaviour
 
     }
     public void RequireDataPanelExit()
+    {
+        RequireDataMenu.SetActive(false);
+    }
+    //模型导入界面hhh
+    public void MeshImportPanelShow()
+    {
+        RequireDataPanel.SetActive(true);
+
+    }
+    public void MeshImportPanelExit()
     {
         RequireDataMenu.SetActive(false);
     }
